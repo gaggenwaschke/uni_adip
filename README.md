@@ -1,2 +1,3 @@
-# uni_adip
-Repos of all the adip practices
+# Uni Bonn aDiP
+
+Repos der Übungen in algorithmische Programmierung.
