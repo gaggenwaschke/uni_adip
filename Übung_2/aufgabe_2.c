@@ -4,13 +4,10 @@
 
 long fib_rec(long n) {
     if (n == 0) {
-        //printf("\ncase 0\n");
         return 0;
     } else if (n == 1) {
-        //printf("\ncase 1 \n");
         return 1;
     } else {
-        //printf("\ncase n > 1, n = %ld", n);
         // sehr uneffizient, aber Funktionsheader muss eingehalten werden
         long f_2 = fib_rec(n-2);
         long f_1 = fib_rec(n-1);
@@ -28,14 +25,14 @@ int main() {
 
 
     printf("\n ---------------------------------- \n");
-    printf("The first 50 fib numbers are:[\n");
+    printf("The first 50 even fib numbers are:[\n");
 
     long long unsigned int a[200];
     int i_f = 0;
     a[0] = 0;
     a[1] = 1;
 
-    for(long i = 0; i < 200; i++)
+    for(long i = 2; i < 200; i++)
     {
         // overflow detection
         if (a[i-1] > (UINT64_MAX-a[i-2]))

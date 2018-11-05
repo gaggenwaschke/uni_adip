@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* rekursive Lösung ist falsch!
 float exp_a(float a, int n, int *counter) {
     (*counter)++;
     if (n == 1)
@@ -21,6 +22,35 @@ float exp_b(float a, int n, int *counter) {
         float inner = exp_b(a, (n-1)/2, counter);
         return a*inner*inner;
     }
+}
+*/
+
+float exp_a(float a, int n, int *counter) {
+    float result = 1.0;
+    for (int i = 0; i < n; i++) {
+        (*counter)++;
+        result *= a;
+    }
+
+    return result;
+}
+
+float exp_b(float a, int n, int *counter) {
+    float result = 1.0;
+    float factor = 1.0;
+
+    while (n != 0) {
+        (*counter)++;
+        if (n % 2 != 0) {
+            for (int i = 0; i<factor; i++) {
+                result *= a;
+            }
+        } 
+        factor*= 2.0;
+        n /= 2;
+    }
+
+    return result;
 }
 
 int main() {
