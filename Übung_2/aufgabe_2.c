@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 long fib_rec(long n) {
     if (n == 0) {
-        printf("\ncase 0\n");
+        //printf("\ncase 0\n");
         return 0;
     } else if (n == 1) {
-        printf("\ncase 1 \n");
+        //printf("\ncase 1 \n");
         return 1;
     } else {
-        printf("\ncase n > 1, n = %ld", n);
+        //printf("\ncase n > 1, n = %ld", n);
         // sehr uneffizient, aber Funktionsheader muss eingehalten werden
         long f_2 = fib_rec(n-2);
         long f_1 = fib_rec(n-1);
@@ -29,17 +30,31 @@ int main() {
     printf("\n ---------------------------------- \n");
     printf("The first 50 fib numbers are:[\n");
 
-    long a[50];
+    long long unsigned int a[200];
+    int i_f = 0;
     a[0] = 0;
     a[1] = 1;
 
-    for(long i = 2; i < 50; i++)
+    for(long i = 0; i < 200; i++)
     {
+        // overflow detection
+        if (a[i-1] > (UINT64_MAX-a[i-2]))
+        {
+            printf("\nError, overflow while trying to add!\n");
+            break;
+        }
+
         a[i] = a[i-1] + a[i-2];
-        printf("%ld,", a[i]);
+        if (a[i] % 2 == 0)
+        {
+            i_f++;
+            printf("%llu,\n", a[i]);
+        }
+        if (i_f >= 50) break;
     }
 
     printf("]\n");
+    printf("number even fib number: %d\n", i_f);
 
     return 0;
 }
