@@ -24,6 +24,10 @@ void calc_with_double() {
     printf("with doubles: %lf\n", result);
 }
 
+void calc_alternative() {
+    
+}
+
 int main() {
     calc_with_float();
     calc_with_double();
