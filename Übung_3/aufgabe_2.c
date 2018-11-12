@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     printf("Bitte Anzahl der Zahlen eingeben!\n");
     int length;
     scanf("%d", &length);
-    float a[length];
+    float *a = malloc(length*sizeof(float));
     printf("Bitte die Nummern eingeben!\n");
     for (int i = 0; i < length; i++) {
         scanf("%f", &a[i]);
@@ -31,5 +32,6 @@ int main() {
     printf("x = %f\n", x);
     printf("s = %f\n", s_sq);
 
+    free(a);
     return 0;
 }
