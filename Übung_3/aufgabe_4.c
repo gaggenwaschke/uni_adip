@@ -12,7 +12,7 @@ void calc_with_float() {
     for (int i = 0; i < 5; i++) {
         result += x[i];
     }
-    printf("with floats: %.10f\n", result);
+    printf("with floats:\t\t\t\t%.15f\n", result);
 }
 
 void calc_with_double() {
@@ -27,10 +27,10 @@ void calc_with_double() {
     for (int i = 0; i < 5; i++) {
         result += x[i];
     }
-    printf("with doubles: %.10lf\n", result);
+    printf("with doubles:\t\t\t\t%.15lf\n", result);
 }
 
-void calc_alternative() {
+void calc_alternative_float() {
     float x[5], S, S_alt, D;
     x[0] = 10000.0;
     x[1] = -1.0e-3/9.0;
@@ -48,14 +48,36 @@ void calc_alternative() {
     }
 
     S = S+D;
-    printf("with alternative method: %.10f\n", S);
+    printf("with alternative float method:\t\t%.15f\n", S);
+}
+
+void calc_alternative_double() {
+    double x[5], S, S_alt, D;
+    x[0] = 10000.0;
+    x[1] = -1.0e-3/9.0;
+    x[2] = 25.0e2;
+    x[3] = 1.0e-3/7.0;
+    x[4] = -12.5e3;
+
+    S = 0.0;
+    D = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        S_alt = S;
+        S = S+x[i];
+        D = D + (x[i] - (S - S_alt));
+    }
+
+    S = S+D;
+    printf("with alternative double method:\t\t%.15lf\n", S);
 }
 
 int main() {
-    printf("Hand calculated value = %.10f\n", 3.1746e-5);
+    printf("Hand calculated value\t\t\t%.15f\n", 3.1746e-5);
     calc_with_float();
     calc_with_double();
-    calc_alternative();
+    calc_alternative_float();
+    calc_alternative_double();
     // D wird in diesem Verfahren angewandt um die Unterschiede in der Größenordnung,
     // welche in der Mantisse einer float nicht gespeichert werden können, abzufangen.
     // Die großen Werte in der Summe werden durch (S-S_alt) maskiert und, wodurch D 
