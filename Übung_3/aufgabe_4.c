@@ -73,7 +73,7 @@ void calc_alternative_double() {
 }
 
 int main() {
-    printf("Hand calculated value\t\t\t%.15f\n", 3.1746e-5);
+    printf("Hand calculated value\t\t\t%.15f\n", 3.17460317e-5);
     calc_with_float();
     calc_with_double();
     calc_alternative_float();
