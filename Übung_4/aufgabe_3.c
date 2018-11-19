@@ -25,7 +25,7 @@ long fac(long n) {
  */
 double prox_cos(double x) {
     double sum = 0.0;
-    for(int n = 0; n < MAX_N; n++)
+    for(int n = 0; n <= MAX_N; n++)
     {
         sum += pow(-1.0, n) * pow(x, 2*n) / fac(2*n);
     }   
@@ -37,7 +37,7 @@ double prox_cos(double x) {
  */
 double prox_sin(double x) {
     double sum = 0.0;
-    for(int n = 0; n < MAX_N; n++)
+    for(int n = 0; n <= MAX_N; n++)
     {
         sum += pow(-1.0, n) * pow(x, 2*n+1) / fac(2*n+1);
     }   
@@ -49,7 +49,7 @@ double prox_sin(double x) {
  */
 double exp(double x) {
     double sum = 0.0;
-    for(int n = 0; n < MAX_N*2; n++)
+    for(int n = 0; n <= MAX_N*2; n++)
     {
         sum += pow(x, n) / fac(n);
     }   
