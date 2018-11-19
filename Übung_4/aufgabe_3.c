@@ -21,7 +21,7 @@ long fac(long n) {
 }
 
 /**
- * approximates sinus
+ * approximates cosine
  */
 double prox_cos(double x) {
     double sum = 0.0;
@@ -33,7 +33,7 @@ double prox_cos(double x) {
 } 
 
 /**
- * approximates cosine
+ * approximates sine
  */
 double prox_sin(double x) {
     double sum = 0.0;
