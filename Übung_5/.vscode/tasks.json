@@ -1,0 +1,18 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile_debug",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "aufgabe_2.c",
+                "-Wall",
+                "-o aufgabe_2",
+                "-g"
+            ]
+        }
+    ]
+}
