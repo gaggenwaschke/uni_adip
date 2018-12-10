@@ -9,9 +9,9 @@ double f(double x) {
 double integrate(double(*fnct)(double), double left, double right, double stepsize) {
     double i = 0;
     for(double x = left; x <= right; x+= stepsize) {
-        i += stepsize * fnct(x);
+        i += fnct(x);
     }
-    return i;
+    return i*stepsize;
 }
 
 int main(int argc, char**argv) {

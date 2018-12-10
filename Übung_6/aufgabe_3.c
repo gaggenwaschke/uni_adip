@@ -92,9 +92,11 @@ int main() {
     student *stud = NewStudent(311233, "George", "Cloony");
     print_student(stud);
 
+    free(stud);
+
     int number = 20;
 
-    student* s[number];
+    student** s = malloc(sizeof(student)*number);
     for (int i = 0; i < number; i++) {
         s[i] = NULL;
     }
@@ -107,5 +109,6 @@ int main() {
     clear_students(s);
     print_students(s);
 
+    free(s);
     return 0;
 }
